@@ -171,7 +171,7 @@ class StreamHandler(BaseCallbackHandler):
 @st.cache_resource
 def load_model():
     try:
-        model_name = "/workspace/ai/jymin/model/local_model/trillionlabs/Trillion-7B-preview"
+        model_name = "LGAI-EXAONE/EXAONE-3.5-7.8B-Instruct"
         tokenizer = AutoTokenizer.from_pretrained(model_name)
         model = AutoModelForCausalLM.from_pretrained(
             model_name,
@@ -187,7 +187,7 @@ def load_model():
 
 @st.cache_resource
 def load_embedding_model():
-    return BGEM3FlagModel('/workspace/ai/jymin/model/local_model/BAAI/bge-m3', use_fp16=True)
+    return BGEM3FlagModel('BAAI/bge-m3', use_fp16=True)
 
 
 def load_system_prompt(file_path="./prompt/voicechat_prompt_0331.txt"):
